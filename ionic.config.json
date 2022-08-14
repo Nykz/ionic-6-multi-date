@@ -1,0 +1,7 @@
+{
+  "name": "date-time-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

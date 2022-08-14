@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>
+      Date Time
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="fixed">Date Time</ion-label>
+    <ion-datetime-button slot="end" datetime="datetime"></ion-datetime-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Date</ion-label>
+    <ion-datetime-button slot="end" datetime="date"></ion-datetime-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Time</ion-label>
+    <ion-datetime-button slot="end" datetime="time"></ion-datetime-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Month Year</ion-label>
+    <ion-datetime-button slot="end" datetime="monthyear"></ion-datetime-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed" class="ion-text-wrap">Wheel Date-Time</ion-label>
+    <ion-datetime-button slot="end" datetime="date-time"></ion-datetime-button>
+  </ion-item>
+
+  <ion-datetime 
+    [showDefaultTitle]="true"
+    presentation="date"
+    [multiple]="true"
+    (ionChange)="change($event)"
+    [value]="['2022-06-03', '2022-06-13', '2022-06-29']" 
+    color="tertiary"
+    size="cover"
+    class="multi">
+    <span slot="title">Select Multiple Date</span>
+  </ion-datetime>
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime id="datetime" (ionChange)="change($event)"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime id="date" presentation="date" (ionChange)="change($event)"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime id="time" presentation="time" (ionChange)="change($event)"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime id="monthyear" presentation="month-year" (ionChange)="change($event)"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime 
+        id="date-time" 
+        presentation="date-time" 
+        [preferWheel]="true" 
+        (ionChange)="change($event)"
+        [showDefaultButtons]="true"
+        doneText="All set"
+        cancelText="Never mind"
+        #datetime>
+        <!-- <ion-buttons slot="buttons">
+          <ion-button color="danger" (click)="datetime.reset()">Reset</ion-button>
+          <ion-button color="primary" (click)="datetime.cancel()">Never mind</ion-button>
+          <ion-button color="primary" (click)="datetime.confirm()">All Set</ion-button>
+        </ion-buttons> -->
+      </ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
